@@ -1,4 +1,3 @@
-android_device_htc_m4
-=====================
+Copyright 2013 - The CyanogenMod Project
 
-HTC One Mini 
+Device configuration for the HTC One Mini.
