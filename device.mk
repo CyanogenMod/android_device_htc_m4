@@ -64,7 +64,7 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/device_keypad.kl:system/usr/keylayout/device_keypad.kl \
+    $(LOCAL_PATH)/keylayout/device-keypad.kl:system/usr/keylayout/device-keypad.kl \
     $(LOCAL_PATH)/keylayout/projector-Keypad.kl:system/usr/keylayout/projector-Keypad.kl \
     $(LOCAL_PATH)/keylayout/synaptics-rmi-touchscreen.kl:system/usr/keylayout/synaptics-rmi-touchscreen.kl \
     $(LOCAL_PATH)/keylayout/sr_touchscreen.kl:system/usr/keylayout/sr_touchscreen.kl

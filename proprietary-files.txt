@@ -9,7 +9,6 @@ bin/netsharing
 bin/qmuxd
 bin/rild
 bin/thermald
-bin/zchgd
 
 #etc
 etc/agps_rm
