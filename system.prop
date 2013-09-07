@@ -1,9 +1,5 @@
 # system.prop for m4
 #
-debug.nfc.fw_download=true
-debug.nfc.fw_boot_download=false
-debug.nfc.se=true
-ro.nfc.port=I2C
 
 ro.sf.lcd_density=320
 persist.timed.enable=true
