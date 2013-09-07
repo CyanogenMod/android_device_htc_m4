@@ -5,7 +5,7 @@ debug.nfc.fw_boot_download=false
 debug.nfc.se=true
 ro.nfc.port=I2C
 
-ro.sf.lcd_density=480
+ro.sf.lcd_density=320
 persist.timed.enable=true
 persist.gps.qmienabled=true
 
