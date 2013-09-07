@@ -38,7 +38,7 @@ TARGET_BOARD_PLATFORM := msm8960
 BOARD_KERNEL_BASE := 0x80600000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=m4 user_debug=31
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01400000 
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01400000
 TARGET_KERNEL_CONFIG := cyanogenmod_m4_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/m7
 
@@ -47,28 +47,27 @@ BOARD_USES_FLUENCE_INCALL := true # use DMIC in call only
 BOARD_USES_SEPERATED_AUDIO_INPUT := true # use distinct voice recog/camcorder use cases
 BOARD_USES_SEPERATED_VOICE_SPEAKER := true # use distinct voice speaker user case
 BOARD_USES_SEPERATED_VOIP := true # use distinct VOIP use cases
-# BOARD_AUDIO_AMPLIFIER := device/htc/m4/libaudioamp
 BOARD_HAVE_HTC_CSDCLIENT := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/m4/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := device/htc/m4/bluetooth/libbt_vndcfg.txt
-BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
 
 # Camera
 BOARD_NEEDS_MEMORYHEAPPMEM := true
 COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 COMMON_GLOBAL_CFLAGS += -DHTC_CAMERA_HARDWARE
 
-# USB
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
-
 # GPS
 BOARD_HAVE_NEW_QC_GPS := true
 
-# Tuning
-# BOARD_HARDWARE_CLASS := device/htc/m4/cmhw
+# RIL
+BOARD_PROVIDES_LIBRIL := true
+COMMON_GLOBAL_CFLAGS += -DNEW_LIBRIL_HTC
+
+# USB
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
 # Wifi
 BOARD_WLAN_DEVICE                := bcmdhd
@@ -86,41 +85,6 @@ WIFI_DRIVER_FW_PATH_P2P          := "/system/etc/firmware/fw_bcm4334_p2p.bin"
 WIFI_DRIVER_MODULE_ARG           := "firmware_path=/system/etc/firmware/fw_bcm4334.bin nvram_path=/system/etc/calibration"
 WIFI_DRIVER_MODULE_AP_ARG        := "firmware_path=/system/etc/firmware/fw_bcm4334_apsta.bin nvram_path=/system/etc/calibration"
 WIFI_BAND                        := 802_11_ABG
-
-# Recovery
-#TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/m4/recovery/kernel
-TARGET_RECOVERY_FSTAB := device/htc/m4/rootdir/etc/fstab.m4
-BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
-
-# TWRP
-DEVICE_RESOLUTION := 720x1280
-TW_INCLUDE_DUMLOCK := true
-RECOVERY_SDCARD_ON_DATA := true
-BOARD_HAS_NO_REAL_SDCARD := true
-TW_INTERNAL_STORAGE_PATH := "/data/media"
-TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
-TW_EXTERNAL_STORAGE_PATH := "/external_sd"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "usb-otg"
-TW_NO_USB_STORAGE := true
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-
-# Filesystem
-BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16776704
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1610611712
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 13220446208
-BOARD_FLASH_BLOCK_SIZE := 131072
-BOARD_VOLD_MAX_PARTITIONS := 36
-
-# Vold
-BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
-
-# RIL
-BOARD_PROVIDES_LIBRIL := true
-COMMON_GLOBAL_CFLAGS += -DNEW_LIBRIL_HTC
 
 # cat /proc/emmc
 #dev:        size     erasesize name
@@ -142,6 +106,36 @@ COMMON_GLOBAL_CFLAGS += -DNEW_LIBRIL_HTC
 #mmcblk0p22: 00400000 00000200 "modem_st1"
 #mmcblk0p23: 00400000 00000200 "modem_st2"
 #mmcblk0p30: 01fffc00 00000200 "reserve"
+
+# Filesystem
+BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16776704
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1610611712
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 13220446208
+BOARD_FLASH_BLOCK_SIZE := 131072
+BOARD_VOLD_MAX_PARTITIONS := 36
+
+# Vold
+BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
+
+# Recovery
+TARGET_RECOVERY_FSTAB := device/htc/m4/rootdir/etc/fstab.m4
+BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
+
+# TWRP
+DEVICE_RESOLUTION := 720x1280
+TW_INCLUDE_DUMLOCK := true
+RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_NO_REAL_SDCARD := true
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "usb-otg"
+TW_NO_USB_STORAGE := true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
 # inherit from the proprietary version
 -include vendor/htc/m4/BoardConfigVendor.mk
