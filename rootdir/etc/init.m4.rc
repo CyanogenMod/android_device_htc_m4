@@ -424,10 +424,6 @@ service akmd /system/bin/akmd
     user system
     group system misc input
 
-service dhcpcd_brcm-pan /system/bin/dhcpcd -ABKL
-    disabled
-    oneshot
-
 # Camera server
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
@@ -492,7 +488,7 @@ service dhcpcd_p2p /system/bin/dhcpcd -aABKL
     disabled
     oneshot
 
-service dhcpcd_bnep0 /system/bin/dhcpcd -BKLG
+service dhcpcd_bt-pan /system/bin/dhcpcd -ABKL
     disabled
     oneshot
 
@@ -504,21 +500,6 @@ service iprenew_p2p /system/bin/dhcpcd -n
     disabled
     oneshot
 # wifi--
-
-service zchgd_offmode /system/bin/zchgd -pseudooffmode
-    user root
-    group root graphics
-    disabled
-
-service zchgd_onmode /system/bin/zchgd -onmode
-    user root
-    group root graphics
-
-on property:dev.zcharge=true
-    start zchgd_onmode
-
-on property:dev.zcharge=false
-    stop zchgd_onmode
 
 on property:init.svc.bootanim=stopped
     start post-boot
