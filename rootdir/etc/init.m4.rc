@@ -99,6 +99,48 @@ on post-fs-data
     chmod 2770 /dev/socket/qmux_bluetooth
 #-SSD_RIL: from Qualcomm socket path
 
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wifi/hostapd 0770 wifi wifi
+    mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    chown dhcp system /data/misc/dhcp
+    setprop wifi.interface wlan0
+
+    # Create directory used by audio subsystem
+    mkdir /data/misc/audio 0770 audio audio
+
+    # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
+    chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
+    chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
+    chmod 0664 /sys/devices/platform/msm_sdcc.3/polling
+    chmod 0664 /sys/devices/platform/msm_sdcc.4/polling
+
+    # Chown polling nodes as needed from UI running on system server
+    chown system system /sys/devices/platform/msm_sdcc.1/polling
+    chown system system /sys/devices/platform/msm_sdcc.2/polling
+    # Change owner and group for media server
+    #chown system system /sys/devices/virtual/graphics/fb1/format_3d
+    chown system system /sys/devices/platform/msm_sdcc.3/polling
+    chown system system /sys/devices/platform/msm_sdcc.4/polling
+
+    #Create directory used by sensor subsystem(dsps)
+    mkdir /data/system/sensors
+    chmod 665 /data/system/sensors
+    write /data/system/sensors/settings 1
+    chmod 660 /data/system/sensors/settings
+
+    # AKM setting data
+    mkdir /data/misc/sensors
+    chmod 775 /data/misc/sensors
+
+    #Provide the access to hostapd.conf only to root and group
+    chmod 0660 /data/hostapd/hostapd.conf
+
+    # 8064 need to created this folder for CSD-QMI usage
+    mkdir /data/audio 0770 media audio
+    chmod 2770 /data/audio
+
     mkdir /data/secure 0755 system system
     mkdir /data/secure/data 0755 system system
     mount tmpfs tmpfs /data/secure/data mode=0755,gid=1000
@@ -281,18 +323,16 @@ on boot
 
 
   # Bluetooth
-    chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
+    chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
-    chown bluetooth bluetooth /proc/bluetooth/sleep/proto
-    chown system system /sys/module/sco/parameters/disable_esco
-    chown bluetooth bluetooth /sys/module/hci_smd/parameters/hcismd_set
-    chmod 0660 /sys/module/bluetooth_power/parameters/power
-    chmod 0660 /sys/module/hci_smd/parameters/hcismd_set
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chmod 0660 /proc/bluetooth/sleep/proto
-    chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
     chmod 0660 /sys/devices/platform/msm_serial_hs.0/clock
+
+    # bluetooth MAC address programming
+    chown bluetooth bluetooth /sys/module/htc_bdaddress/parameters/bdaddress
+    setprop ro.bt.bdaddr_path /sys/module/htc_bdaddress/parameters/bdaddress
 
     # bluetooth LPM
     chmod 0220 /proc/bluetooth/sleep/lpm
@@ -426,6 +466,8 @@ service akmd /system/bin/akmd
     user system
     group system misc input
 
+# Bluetooth
+
 # Camera server
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
@@ -435,6 +477,12 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
 service kickstart /system/bin/qcks -1 modem_st1 -2 modem_st2 -3 radio_config -4 cdma_record -i /firmware/mdm/image/ -u
     class core
     user root
+    oneshot
+
+service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
+    user bluetooth
+    group qcom_oncrpc bluetooth net_bt_admin system
+    disabled
     oneshot
 
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
@@ -452,6 +500,34 @@ service qmuxd /system/bin/qmuxd
     class core
     user radio
     group radio audio gps
+
+service ril-daemon /system/bin/rild
+    class core
+    socket rild stream 660 root radio
+    socket rild-debug stream 660 radio system
+    user root
+    group radio cache inet misc audio media_rw sdcard_rw qcom_oncrpc diag qcom_diag
+
+on property:dev.bootcomplete=1
+    start mpdecision
+
+service shutdown /system/bin/shutdown
+    user root
+    group root
+    disabled
+    oneshot
+
+service charging /system/bin/charging
+    user root
+    group root
+    disabled
+    oneshot
+
+# Widevine DRM start
+service qseecomd /system/bin/qseecomd
+    class late_start
+    user system
+    group system
 
 service netmgrd /system/bin/netmgrd
     class core
@@ -501,12 +577,35 @@ service iprenew_wlan0 /system/bin/dhcpcd -n
 service iprenew_p2p /system/bin/dhcpcd -n
     disabled
     oneshot
-# wifi--
+
+on property:bluetooth.hciattach=true
+    start hciattach
+
+on property:bluetooth.hciattach=false
+    setprop bluetooth.status off
 
 on property:init.svc.bootanim=stopped
     start post-boot
     stop thermald_boot
     start thermald
+
+on property:init.svc.wpa_supplicant=stopped
+    stop dhcpcd_wlan0
+
+on property:persist.thermal.monitor=true
+    start thermald
+
+on property:persist.timed.enable=true
+    start time_daemon
+
+on property:ro.qualcomm.cabl=1
+    start abld
+
+on property:ro.qualcomm.cabl=0
+    stop abld
+
+on property:ro.use_data_netmgrd=false
+    stop netmgrd
 
 on property:service.adb.root=1
     write /sys/class/android_usb/android0/enable 0
