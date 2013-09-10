@@ -45,6 +45,94 @@ on init
     symlink /storage/usbdisk /usbdisk
     symlink /storage/usbdisk /mnt/usbdisk
 
+# On emmc mount the partition containing firmware
+on fs
+    mount_all ./fstab.m4
+
+    mkdir /devlog 0700 root root
+    mkdir /ramdump 0700 root root
+
+    # For firmwares
+    mkdir /firmware 0771 system system
+    mkdir /vendor 0771 system system
+    mkdir /vendor/firmware 0771 system system
+    mkdir /firmware/mdm 0771 system system
+    mkdir /firmware/q6 0771 system system
+
+    insmod /system/lib/modules/dm-crypt.ko
+
+    mkdir /data/tombstones 0771 system system
+    symlink /data/tombstones /tombstones
+    mkdir /tombstones/mdm 0771 system system
+    mkdir /tombstones/modem 0771 system system
+    mkdir /tombstones/lpass 0771 system system
+    mkdir /tombstones/dsps 0771 system system
+
+    mkdir /data/qcks 0700 root system
+    mount tmpfs tmpfs /data/qcks size=20m,mode=0750,gid=1000
+
+    mkdir /data/efs 0700 root system
+    mount tmpfs tmpfs /data/efs size=20m,mode=0750,gid=1000
+
+    # 8064 need to created this folder for CSD-QMI usage
+    mkdir /data/audio 0775 media audio
+    chmod 2775 /data/audio
+
+    # Link widevine drm library path
+    symlink /system/vendor/lib /vendor/lib
+
+    # Symlink firmwares
+    exec /system/bin/sh /init.qcom.firmware_links.sh /firmware/mdm/image /vendor/firmware "*.mbn *.img"
+    exec /system/bin/sh /init.qcom.firmware_links.sh /firmware/q6 /vendor/firmware "q6.*"
+
+    mount_all ./remount.m4
+
+on post-fs-data
+    mkdir /data/radio 0770 radio radio
+    chmod 2770 /data/radio
+#+SSD_RIL: from Qualcomm socket path
+    mkdir /dev/socket/qmux_radio 0770 radio radio
+    chmod 2770 /dev/socket/qmux_radio
+    mkdir /dev/socket/qmux_audio 0770 audio audio
+    chmod 2770 /dev/socket/qmux_audio
+    mkdir /dev/socket/qmux_bluetooth 0770 bluetooth bluetooth
+    chmod 2770 /dev/socket/qmux_bluetooth
+#-SSD_RIL: from Qualcomm socket path
+
+    mkdir /data/secure 0755 system system
+    mkdir /data/secure/data 0755 system system
+    mount tmpfs tmpfs /data/secure/data mode=0755,gid=1000
+
+    # HTC add: double check the perms of /data/data for already existed case
+    chown system system /data/data
+    chmod 0771 /data/data
+
+    # If there is no fs-post-data action in the init.<device>.rc file, you
+    # must uncomment this line, otherwise encrypted filesystems
+    # won't work.
+    # Set indication (checked by vold) that we have finished this action
+    setprop vold.post_fs_data_done 1
+
+on boot
+    # mount debugfs for systrace
+    mount debugfs /sys/kernel/debug /sys/kernel/debug
+
+    # We will remap this as /mnt/sdcard with the sdcard fuse tool
+    mkdir /data/media 0775 media_rw media_rw
+    chown media_rw media_rw /data/media
+
+    setprop ro.crypto.fuse_sdcard true
+
+    # Give system access to wpa_supplicant.conf for backup and restore
+    mkdir /data/misc/wifi/sockets 0771 wifi wifi
+    mkdir /data/misc/dhcp 0755 wifi wifi
+    chown dhcp dhcp /data/misc/dhcp
+    chmod 0770 /data/misc/wifi
+
+    write /sys/devices/i2c-3/3-0024/cyttsp_update_fw 1
+
+    start qcamerasvr
+
     # For Invensense MPU3050
     chmod 0664 /sys/class/gyro_sensors/gyro/mpu_lpm_flag
     chown system system /sys/class/gyro_sensors/gyro/mpu_lpm_flag
@@ -190,95 +278,9 @@ on init
     chown system system /sys/android_touch/sleep_wake_vibration_time
     chown system system /sys/android_touch/l2m_2_phase
 
-# On emmc mount the partition containing firmware
-on fs
-    mkdir /devlog 0700 root root
-    mkdir /ramdump 0700 root root
 
-    # For firmwares
-    mkdir /firmware 0771 system system
-    mkdir /vendor 0771 system system
-    mkdir /vendor/firmware 0771 system system
-    mkdir /firmware/mdm 0771 system system
-    mkdir /firmware/q6 0771 system system
 
-    mount_all ./fstab.m4
-
-    insmod /system/lib/modules/dm-crypt.ko
-
-    mkdir /data/tombstones 0771 system system
-    symlink /data/tombstones /tombstones
-    mkdir /tombstones/mdm 0771 system system
-    mkdir /tombstones/modem 0771 system system
-    mkdir /tombstones/lpass 0771 system system
-    mkdir /tombstones/dsps 0771 system system
-
-    mkdir /data/qcks 0700 root system
-    mount tmpfs tmpfs /data/qcks size=20m,mode=0750,gid=1000
-
-    mkdir /data/efs 0700 root system
-    mount tmpfs tmpfs /data/efs size=20m,mode=0750,gid=1000
-
-    # 8064 need to created this folder for CSD-QMI usage
-    mkdir /data/audio 0775 media audio
-    chmod 2775 /data/audio
-
-    # Link widevine drm library path
-    symlink /system/vendor/lib /vendor/lib
-
-    # Symlink firmwares
-    exec /system/bin/sh /init.qcom.firmware_links.sh /firmware/mdm/image /vendor/firmware "*.mbn *.img"
-    exec /system/bin/sh /init.qcom.firmware_links.sh /firmware/q6 /vendor/firmware "q6.*"
-
-    mount_all ./remount.m4
-
-on post-fs-data
-    mkdir /data/radio 0770 radio radio
-    chmod 2770 /data/radio
-#+SSD_RIL: from Qualcomm socket path
-    mkdir /dev/socket/qmux_radio 0770 radio radio
-    chmod 2770 /dev/socket/qmux_radio
-    mkdir /dev/socket/qmux_audio 0770 audio audio
-    chmod 2770 /dev/socket/qmux_audio
-    mkdir /dev/socket/qmux_bluetooth 0770 bluetooth bluetooth
-    chmod 2770 /dev/socket/qmux_bluetooth
-#-SSD_RIL: from Qualcomm socket path
-
-    mkdir /data/secure 0755 system system
-    mkdir /data/secure/data 0755 system system
-    mount tmpfs tmpfs /data/secure/data mode=0755,gid=1000
-
-    # HTC add: double check the perms of /data/data for already existed case
-    chown system system /data/data
-    chmod 0771 /data/data
-
-    # If there is no fs-post-data action in the init.<device>.rc file, you
-    # must uncomment this line, otherwise encrypted filesystems
-    # won't work.
-    # Set indication (checked by vold) that we have finished this action
-    setprop vold.post_fs_data_done 1
-
-on boot
-    # mount debugfs for systrace
-    mount debugfs /sys/kernel/debug /sys/kernel/debug
-
-    # We will remap this as /mnt/sdcard with the sdcard fuse tool
-    mkdir /data/media 0775 media_rw media_rw
-    chown media_rw media_rw /data/media
-
-    setprop ro.crypto.fuse_sdcard true
-
-    # Give system access to wpa_supplicant.conf for backup and restore
-    mkdir /data/misc/wifi/sockets 0771 wifi wifi
-    mkdir /data/misc/dhcp 0755 wifi wifi
-    chown dhcp dhcp /data/misc/dhcp
-    chmod 0770 /data/misc/wifi
-
-    write /sys/devices/i2c-3/3-0024/cyttsp_update_fw 1
-
-    start qcamerasvr
-
-    # Bluetooth
+  # Bluetooth
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
