@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
 # common msm8960 configs
 $(call inherit-product, device/htc/msm8960-common/msm8960.mk)
 
@@ -43,8 +45,6 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/thermald.conf:system/etc/thermald.co
 # Vold config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/vold.fstab:system/etc/vold.fstab
-
-PRODUCT_CHARACTERISTICS := nosdcard
 
 PRODUCT_PACKAGES += \
     libnetcmdiface
@@ -81,10 +81,18 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
+    libloc_adapter \
+    libloc_eng \
+    libloc_api_v02 \
+    libgps.utils \
     gps.msm8960
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf
+
+# Keystore
+PRODUCT_PACKAGES += \
+    keystore.msm8960
 
 # Torch
 PRODUCT_PACKAGES += \
@@ -97,6 +105,16 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.timed.enable=true \
+    persist.gps.qmienabled=true \
+    ro.opengles.version=196608
+
+# We have enough space to hold precise GC data
+PRODUCT_TAGS += dalvik.gc.type-precise
+
+PRODUCT_CHARACTERISTICS := nosdcard
 
 # Set build date
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
