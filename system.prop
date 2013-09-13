@@ -12,4 +12,6 @@ rild.libargs=-d /dev/smd0
 rild.libpath=/system/lib/libril-qc-qmi-1.so
 ro.vendor.extension_library=/system/lib/libqc-opt.so
 ro.telephony.default_network=9
+mobiledata.interfaces=rmnet0,rmnet1
+ro.telephony.ril_class=HTCQualcommRIL
 telephony.lteOnGsmDevice=1
