@@ -45,20 +45,16 @@ on init
     symlink /storage/usbdisk /usbdisk
     symlink /storage/usbdisk /mnt/usbdisk
 
-    # For firmwares
-    mkdir  /firmware 0771 system system
-    rm /vendor
-    mkdir /vendor 0771 system system
-    mkdir /vendor/firmware 0771 system system
-
 # On emmc mount the partition containing firmware
 on fs
-    mount_all ./fstab.m4
-    setprop ro.crypto.fuse_sdcard true
-
+    # create firmware mount points
+    mkdir /firmware_radio 0771 system system
+    mkdir /firmware_q6 0771 system system
     mkdir /devlog 0700 root root
-    mount ext4 /dev/block/mmcblk0p24 /devlog wait noatime nosuid nodev data=ordered noauto_da_alloc
-   
+
+    # mount all mmc partitions
+    mount_all ./fstab.m4
+
     mkdir /data/tombstones 0771 system system
     symlink /data/tombstones /tombstones
     mkdir /tombstones/mdm 0771 system system
@@ -66,11 +62,21 @@ on fs
     mkdir /tombstones/lpass 0771 system system
     mkdir /tombstones/dsps 0771 system system
 
-    # For radio firmware
-    mkdir /firmware/mdm 0771 system system
-    mount vfat /dev/block/mmcblk0p16 /firmware/mdm wait ro shortname=lower
-    exec /system/bin/sh /init.qcom.firmware_links.sh /firmware/mdm/image /vendor/firmware "*.mbn *.img"
- 
+    # Create firmware linking directories
+    mkdir /firmware 0771 system system
+    rm -rf /vendor
+    mkdir /vendor 0771 system system
+    mkdir /vendor/firmware/ 0771 system system
+
+    # For link firmware
+    exec /system/bin/sh /system/etc/init.qcom.radio_links.sh
+    exec /system/bin/sh /system/etc/init.qcom.q6_links.sh
+
+    mount_all ./remount.m4
+
+on post-fs-data
+    setprop ro.crypto.fuse_sdcard true
+
     insmod /system/lib/modules/dm-crypt.ko
 
     mkdir /data/qcks 0700 root system
@@ -79,10 +85,6 @@ on fs
     mkdir /data/efs 0700 root system
     mount tmpfs tmpfs /data/efs size=20m,mode=0750,gid=1000
 
-    mkdir /firmware/q6 0771 system system
-    mount vfat /dev/block/mmcblk0p15 /firmware/q6 wait ro shortname=lower
-    exec /system/bin/sh /init.qcom.firmware_links.sh /firmware/q6 /vendor/firmware "q6.*"
-
     # 8064 need to created this folder for CSD-QMI usage
     mkdir /data/audio 0775 media audio
     chmod 2775 /data/audio
@@ -90,15 +92,9 @@ on fs
     # Link widevine drm library path
     symlink /system/vendor/lib /vendor/lib
 
-    # Symlink firmwares
-    exec /system/bin/sh /init.qcom.firmware_links.sh /firmware/mdm/image /vendor/firmware "*.mbn *.img"
-    exec /system/bin/sh /init.qcom.firmware_links.sh /firmware/q6 /vendor/firmware "q6.*"
-
-    mount_all ./remount.m4
-
-on post-fs-data
     mkdir /data/radio 0770 radio radio
     chmod 2770 /data/radio
+
 #+SSD_RIL: from Qualcomm socket path
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
@@ -492,7 +488,7 @@ service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
     class main
     user root
 
-service post-boot /system/bin/sh /system/etc/init.post_boot.sh
+service post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
     user root
     disabled
     oneshot
@@ -554,6 +550,12 @@ service iprenew_p2p /system/bin/dhcpcd -n
     oneshot
 
 # wifi-- 
+
+on property:bluetooth.hciattach=true
+    setprop bluetooth.status on
+
+on property:bluetooth.hciattach=false
+    setprop bluetooth.status off
 
 on property:init.svc.bootanim=stopped
     start post-boot

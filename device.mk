@@ -29,15 +29,18 @@ TARGET_SCREEN_WIDTH := 720
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.m4 \
-    init.qcom.mdm_links.sh \
     init.m4.rc \
     init.m4.usb.rc \
     remount.m4 \
     ueventd.m4.rc
 
-# Post boot service
+# Qualcomm scripts
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/init.post_boot.sh:system/etc/init.post_boot.sh
+    $(LOCAL_PATH)/configs/init.qcom.bt.sh:/system/etc/init.qcom.bt.sh \
+    $(LOCAL_PATH)/configs/init.qcom.fm.sh:/system/etc/init.qcom.fm.sh \
+    $(LOCAL_PATH)/configs/init.qcom.post_boot.sh:/system/etc/init.qcom.post_boot.sh \
+    $(LOCAL_PATH)/configs/init.qcom.q6_links.sh:/system/etc/init.qcom.q6_links.sh \
+    $(LOCAL_PATH)/configs/init.qcom.radio_links.sh:/system/etc/init.qcom.radio_links.sh
 
 # QC thermald config
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/thermald.conf:system/etc/thermald.conf
