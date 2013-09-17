@@ -5,6 +5,7 @@ bin/mm-qcamera-daemon
 bin/mpdecision
 bin/netmgrd
 bin/qmuxd
+bin/rmt_storage
 bin/thermald
 
 # Configuration files
