@@ -92,18 +92,6 @@ on post-fs-data
     # Link widevine drm library path
     symlink /system/vendor/lib /vendor/lib
 
-    mkdir /data/radio 0770 radio radio
-    chmod 2770 /data/radio
-
-#+SSD_RIL: from Qualcomm socket path
-    mkdir /dev/socket/qmux_radio 0770 radio radio
-    chmod 2770 /dev/socket/qmux_radio
-    mkdir /dev/socket/qmux_audio 0770 audio audio
-    chmod 2770 /dev/socket/qmux_audio
-    mkdir /dev/socket/qmux_bluetooth 0770 bluetooth bluetooth
-    chmod 2770 /dev/socket/qmux_bluetooth
-#-SSD_RIL: from Qualcomm socket path
-
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     mkdir /data/misc/wifi/hostapd 0770 wifi wifi
@@ -169,6 +157,19 @@ on boot
     chown media_rw media_rw /data/media
 
     setprop ro.crypto.fuse_sdcard true
+
+    # radio
+    mkdir /data/radio 0770 radio radio
+    chmod 2770 /data/radio
+    mkdir /dev/socket/qmux_radio 0770 radio radio
+    chmod 2770 /dev/socket/qmux_radio
+    mkdir /dev/socket/qmux_audio 0770 audio audio
+    chmod 2770 /dev/socket/qmux_audio
+    mkdir /dev/socket/qmux_bluetooth 0770 bluetooth bluetooth
+    chmod 2770 /dev/socket/qmux_bluetooth
+
+    # 4.3 requires this
+    chmod 0644 /proc/cmdline
 
     # Give system access to wpa_supplicant.conf for backup and restore
     mkdir /data/misc/wifi/sockets 0771 wifi wifi
@@ -499,6 +500,10 @@ service qmuxd /system/bin/qmuxd
     class core
     user radio
     group radio audio gps
+
+service rmt_storage /system/bin/rmt_storage modem_st1 modem_st2 recovery radio_config
+    class core
+    user root
 
 service netmgrd /system/bin/netmgrd
     class core

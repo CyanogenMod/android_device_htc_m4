@@ -5,9 +5,8 @@ ro.sf.lcd_density=320
 persist.timed.enable=true
 persist.gps.qmienabled=true
 
-ro.baseband.arch=mdm
-ro.telephony.call_ring.multiple=false
-ro.telephony.call_ring.delay=3000
+ro.baseband.arch=msm
+DEVICE_PROVISIONED=1
 rild.libargs=-d /dev/smd0
 rild.libpath=/system/lib/libril-qc-qmi-1.so
 ro.vendor.extension_library=/system/lib/libqc-opt.so
