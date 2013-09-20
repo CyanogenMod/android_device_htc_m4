@@ -14,8 +14,12 @@
 /dev/msm_rotator          0666   system     graphics
 
 # these should not be world writable
+/dev/ttyMSM0              0600   bluetooth  bluetooth
 /dev/ttyHS0               0660   bluetooth  bluetooth
 /dev/ttyGS0               0660   system     system
+/dev/uinput               0660   system     bluetooth
+/dev/alarm                0664   system     system
+/dev/tty0                 0660   root       system
 /dev/pmem_audio           0660   system     audio
 /dev/pmem_smipool*        0660   system     camera
 /dev/oncrpc/*             0660   radio      system
@@ -73,7 +77,7 @@
 /dev/ion                  0664   system     system
 
 # wifi
-/dev/rfkill               0660   root       root
+/dev/rfkill               0777   root       wifi 
 
 #permissions for video
 /dev/msm_vidc_reg         0660  system       audio
