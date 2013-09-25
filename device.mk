@@ -54,7 +54,7 @@ PRODUCT_PACKAGES += \
 
 # Wifi config
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/calibration:/system/etc/calibration
+    $(LOCAL_PATH)/configs/calibration.gpio4:/system/etc/calibration.gpio4
 
 # Audio config
 PRODUCT_COPY_FILES += \
