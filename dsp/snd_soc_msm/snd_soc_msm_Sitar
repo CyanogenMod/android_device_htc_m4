@@ -1586,6 +1586,33 @@ SectionDevice
 EndSection
 
 SectionDevice
+	Name "Voice Earpiece"
+
+	EnableSequence
+		'SLIM_0_RX Channels':0:One
+		'DAC3 MUX':0:INV_RX1
+		'DAC2 MUX':0:RX1
+		'LINEOUT1 Volume':1:80
+		'LINEOUT2 Volume':1:80
+		'RX1 MIX1 INP1':0:RX1
+		'RX1 Digital Volume':2:54
+		'RCV AMP EN Switch':1:1
+	EndSequence
+
+	DisableSequence
+		'RCV AMP EN Switch':1:0
+		'DAC3 MUX':0:ZERO
+		'DAC2 MUX':0:ZERO
+		'LINEOUT1 Volume':1:0
+		'LINEOUT2 Volume':1:0
+		'RX1 MIX1 INP1':0:ZERO
+		'RX1 Digital Volume':2:0
+	EndSequence
+
+	ACDBID  7:1
+EndSection
+
+SectionDevice
 	Name "FM Tx"
 
 	EnableSequence
@@ -1615,6 +1642,26 @@ SectionDevice
 	EndSequence
 
 	ACDBID  4:2
+EndSection
+
+SectionDevice
+        Name "Voice Handset"
+
+        EnableSequence
+                'SLIM_0_TX Channels':0:One
+                'SLIM TX3 MUX':0:DEC3
+                'DEC3 MUX':0:DMIC2
+                'DEC3 Volume':2:57
+        EndSequence
+
+        DisableSequence
+                'SLIM_0_TX Channels':0:ZERO
+                'SLIM TX3 MUX':0:ZERO
+                'DEC3 MUX':0:ZERO
+                'DEC3 Volume':2:0
+        EndSequence
+
+        ACDBID  4:2
 EndSection
 
 SectionDevice
@@ -1881,12 +1928,48 @@ SectionDevice
 	Name "Speaker"
 
 	EnableSequence
+		'MI2S_RX Port Mixer SLIM_1_TX':1:1
+		'MI2S_RX_Voice Mixer Voice Stub':1:1
+		'Voice Stub Tx Mixer SLIM_1_TX':1:1
+		'Voice Stub Tx Mixer MI2S_TX':1:1
+		'SLIMBUS_3_RX_Voice Mixer Voice Stub':1:1
+		'SLIMBUS_3_RX Port Mixer MI2S_TX':1:1
 	EndSequence
 
 	DisableSequence
+		'MI2S_RX Port Mixer SLIM_1_TX':1:0
+		'MI2S_RX_Voice Mixer Voice Stub':1:0
+		'Voice Stub Tx Mixer SLIM_1_TX':1:0
+		'Voice Stub Tx Mixer MI2S_TX':1:0
+		'SLIMBUS_3_RX_Voice Mixer Voice Stub':1:0
+		'SLIMBUS_3_RX Port Mixer MI2S_TX':1:0
 	EndSequence
 
-	ACDBID  15:1
+	ACDBID  14:1
+EndSection
+
+SectionDevice
+	Name "Voice Speaker"
+
+	EnableSequence
+		'MI2S_RX Port Mixer SLIM_1_TX':1:1
+		'MI2S_RX_Voice Mixer Voice Stub':1:1
+		'Voice Stub Tx Mixer SLIM_1_TX':1:1
+		'Voice Stub Tx Mixer MI2S_TX':1:1
+		'SLIMBUS_3_RX_Voice Mixer Voice Stub':1:1
+		'SLIMBUS_3_RX Port Mixer MI2S_TX':1:1
+	EndSequence
+
+	DisableSequence
+		'MI2S_RX Port Mixer SLIM_1_TX':1:0
+		'MI2S_RX_Voice Mixer Voice Stub':1:0
+		'Voice Stub Tx Mixer SLIM_1_TX':1:0
+		'Voice Stub Tx Mixer MI2S_TX':1:0
+		'SLIMBUS_3_RX_Voice Mixer Voice Stub':1:0
+		'SLIMBUS_3_RX Port Mixer MI2S_TX':1:0
+	EndSequence
+
+	ACDBID  14:1
 EndSection
 
 SectionDevice
@@ -1914,22 +1997,22 @@ SectionDevice
 EndSection
 
 SectionDevice
-	Name "Speaker DMIC Endfire"
+        Name "Speaker DMIC Endfire"
 
-	EnableSequence
-		'SLIM_0_TX Channels':0:One
-		'SLIM TX3 MUX':0:DEC3
-		'DEC3 MUX':0:DMIC4
-		'DEC3 Volume':2:54
-	EndSequence
+        EnableSequence
+                'SLIM_0_TX Channels':0:One
+                'SLIM TX3 MUX':0:DEC3
+                'DEC3 MUX':0:DMIC4
+                'DEC3 Volume':2:54
+        EndSequence
 
-	DisableSequence
-		'SLIM TX3 MUX':0:ZERO
-		'DEC3 MUX':0:ZERO
-		'DEC3 Volume':2:0
-	EndSequence
+        DisableSequence
+                'SLIM TX3 MUX':0:ZERO
+                'DEC3 MUX':0:ZERO
+                'DEC3 Volume':2:0
+        EndSequence
 
-	ACDBID  42:2
+        ACDBID  42:2
 EndSection
 
 SectionDevice
@@ -2619,6 +2702,45 @@ SectionDevice
 
 	ACDBID  11:2
 EndSection
+
+SectionDevice
+        Name "Voice Line"
+
+        EnableSequence
+                'SLIM_0_TX Channels':0:One
+                'SLIM TX3 MUX':0:DEC3
+                'DEC3 MUX':0:DMIC4
+                'DEC3 Volume':2:57
+        EndSequence
+
+        DisableSequence
+                'SLIM TX3 MUX':0:ZERO
+                'DEC3 MUX':0:ZERO
+                'DEC3 Volume':2:0
+        EndSequence
+
+        ACDBID  11:2
+EndSection
+
+SectionDevice
+        Name "Voice Recognition"
+
+        EnableSequence
+                'SLIM_0_TX Channels':0:One
+                'SLIM TX3 MUX':0:DEC3
+                'DEC3 MUX':0:DMIC4
+                'DEC3 Volume':2:57
+        EndSequence
+
+        DisableSequence
+                'SLIM TX3 MUX':0:ZERO
+                'DEC3 MUX':0:ZERO
+                'DEC3 Volume':2:0
+        EndSequence
+
+        ACDBID  11:2
+EndSection
+
 
 SectionDevice
 	Name "Speaker Voice"
