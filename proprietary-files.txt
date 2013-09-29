@@ -122,6 +122,7 @@ lib/libhtccamera_yushaniiproc.so
 lib/libHTC_DIS.so
 lib/libimage-jpeg-dec-omx-comp.so
 lib/libimage-jpeg-enc-omx-comp.so
+lib/libimage-omx-common.so
 lib/libmmcamera_aec.so
 lib/libmmcamera_faceproc.so
 lib/libmmcamera_frameproc.so
@@ -134,6 +135,7 @@ lib/libmmcamera_statsproc31.so
 lib/libmmcamera_wavelet_lib.so
 lib/libmmipl.so
 lib/libmmjpeg.so
+lib/libmmstillomx.so
 lib/liboemcamera.so
 lib/libposteffect.so
 
