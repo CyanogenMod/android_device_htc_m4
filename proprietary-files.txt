@@ -143,6 +143,10 @@ lib/libposteffect.so
 lib/libgeofence.so
 lib/libloc_api_v02.so
 
+# Media libraries
+lib/libI420colorconvert.so
+lib/libmm-color-convertor.so
+
 # QMI
 lib/libdiag.so
 lib/libdsi_netctrl.so
