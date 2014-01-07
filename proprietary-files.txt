@@ -107,7 +107,7 @@ lib/libcsd-client.so
 etc/firmware/ILP0100_IPM_Code_out.bin
 etc/firmware/ILP0100_IPM_Data_out.bin
 etc/firmware/lscbuffer_rev2.bin
-lib/hw/vendor-camera.msm8960.so
+lib/hw/camera.vendor.msm8960.so
 lib/libBeautyChat.so
 lib/libcameraasd.so
 lib/libcameraface.so
