@@ -54,20 +54,6 @@ SectionVerb
 EndSection
 
 SectionVerb
-	Name "HiFiVoice Speaker"
-
-	EnableSequence
-		'MI2S_RX Audio Mixer MultiMedia1':1:1
-	EndSequence
-
-	DisableSequence
-		'MI2S_RX Audio Mixer MultiMedia1':1:0
-	EndSequence
-	CapturePCM  0
-	PlaybackPCM  0
-EndSection
-
-SectionVerb
 	Name "HiFiBT SCO Tx"
 
 	EnableSequence
@@ -162,6 +148,34 @@ SectionVerb
 EndSection
 
 SectionVerb
+	Name "HiFiVoice Speaker"
+
+	EnableSequence
+		'MI2S_RX Audio Mixer MultiMedia1':1:1
+	EndSequence
+
+	DisableSequence
+		'MI2S_RX Audio Mixer MultiMedia1':1:0
+	EndSequence
+	CapturePCM  0
+	PlaybackPCM  0
+EndSection
+
+SectionVerb
+	Name "HiFiSpeaker"
+
+	EnableSequence
+		'MI2S_RX Audio Mixer MultiMedia1':1:1
+	EndSequence
+
+	DisableSequence
+		'MI2S_RX Audio Mixer MultiMedia1':1:0
+	EndSequence
+	CapturePCM  0
+	PlaybackPCM  0
+EndSection
+
+SectionVerb
 	Name "HiFiSpeaker FM Tx"
 
 	EnableSequence
@@ -234,7 +248,191 @@ SectionVerb
 	CapturePCM  0
 	PlaybackPCM  0
 EndSection
+}
+SectionUseCase."HiFi Lowlatency" {
+SectionVerb
+	Name "HiFi Lowlatency"
 
+	EnableSequence
+		'SLIMBUS_0_RX Audio Mixer MultiMedia5':1:1
+	EndSequence
+
+	DisableSequence
+		'SLIMBUS_0_RX Audio Mixer MultiMedia5':1:0
+	EndSequence
+	PlaybackPCM  14
+EndSection
+
+SectionVerb
+	Name "HiFi LowlatencyBT SCO Rx"
+
+	EnableSequence
+		'AUX_PCM_RX Audio Mixer MultiMedia5':1:1
+	EndSequence
+
+	DisableSequence
+		'AUX_PCM_RX Audio Mixer MultiMedia5':1:0
+	EndSequence
+	PlaybackPCM  14
+EndSection
+
+SectionVerb
+	Name "HiFi LowlatencyBT SCO WB Rx"
+
+	EnableSequence
+		'AUX_PCM_RX Audio Mixer MultiMedia5':1:1
+	EndSequence
+
+	DisableSequence
+		'AUX_PCM_RX Audio Mixer MultiMedia5':1:0
+	EndSequence
+	PlaybackPCM  14
+EndSection
+
+SectionVerb
+	Name "HiFi LowlatencyHDMI"
+
+	EnableSequence
+		'HDMI Mixer MultiMedia5':1:1
+	EndSequence
+
+	DisableSequence
+		'HDMI Mixer MultiMedia5':1:0
+	EndSequence
+	PlaybackPCM  14
+EndSection
+
+SectionVerb
+	Name "HiFi LowlatencyPROXY Rx"
+
+	EnableSequence
+		'AFE_PCM_RX Audio Mixer MultiMedia5':1:1
+	EndSequence
+
+	DisableSequence
+		'AFE_PCM_RX Audio Mixer MultiMedia5':1:0
+	EndSequence
+	PlaybackPCM  14
+EndSection
+
+SectionVerb
+	Name "HiFi LowlatencyPROXY Tx"
+
+	EnableSequence
+	EndSequence
+
+	DisableSequence
+	EndSequence
+	PlaybackPCM  14
+EndSection
+
+SectionVerb
+	Name "HiFi LowlatencySpeaker"
+
+	EnableSequence
+		'MI2S_RX Audio Mixer MultiMedia5':1:1
+	EndSequence
+
+	DisableSequence
+		'MI2S_RX Audio Mixer MultiMedia5':1:0
+	EndSequence
+	PlaybackPCM  14
+EndSection
+
+SectionVerb
+	Name "HiFi LowlatencyVoice Speaker"
+
+	EnableSequence
+		'MI2S_RX Audio Mixer MultiMedia5':1:1
+	EndSequence
+
+	DisableSequence
+		'MI2S_RX Audio Mixer MultiMedia5':1:0
+	EndSequence
+	PlaybackPCM  14
+EndSection
+
+SectionVerb
+	Name "HiFi LowlatencyVOIP Speaker"
+
+	EnableSequence
+		'MI2S_RX Audio Mixer MultiMedia5':1:1
+	EndSequence
+
+	DisableSequence
+		'MI2S_RX Audio Mixer MultiMedia5':1:0
+	EndSequence
+	PlaybackPCM  14
+EndSection
+}
+SectionUseCase."HiFi Lowlatency Rec" {
+SectionVerb
+	Name "HiFi Lowlatency Rec"
+
+	EnableSequence
+		'MultiMedia5 Mixer SLIM_0_TX':1:1
+	EndSequence
+
+	DisableSequence
+		'MultiMedia5 Mixer SLIM_0_TX':1:0
+	EndSequence
+	CapturePCM  14
+	PlaybackPCM  14
+EndSection
+
+SectionVerb
+	Name "HiFi Lowlatency RecBT SCO Tx"
+
+	EnableSequence
+		'MultiMedia5 Mixer AUX_PCM_TX':1:1
+	EndSequence
+
+	DisableSequence
+		'MultiMedia5 Mixer AUX_PCM_TX':1:0
+	EndSequence
+	CapturePCM  14
+	PlaybackPCM  14
+EndSection
+
+SectionVerb
+	Name "HiFi Lowlatency RecBT SCO WB Tx"
+
+	EnableSequence
+		'MultiMedia5 Mixer AUX_PCM_TX':1:1
+	EndSequence
+
+	DisableSequence
+		'MultiMedia5 Mixer AUX_PCM_TX':1:0
+	EndSequence
+	CapturePCM  14
+	PlaybackPCM  14
+EndSection
+
+SectionVerb
+	Name "HiFi Lowlatency RecPROXY Rx"
+
+	EnableSequence
+	EndSequence
+
+	DisableSequence
+	EndSequence
+	CapturePCM  14
+	PlaybackPCM  14
+EndSection
+
+SectionVerb
+	Name "HiFi Lowlatency RecPROXY Tx"
+
+	EnableSequence
+		'MultiMedia5 Mixer AFE_PCM_TX':1:1
+	EndSequence
+
+	DisableSequence
+		'MultiMedia5 Mixer AFE_PCM_TX':1:0
+	EndSequence
+	CapturePCM  14
+	PlaybackPCM  14
+EndSection
 }
 SectionUseCase."HiFi Rec" {
 SectionVerb
@@ -293,8 +491,8 @@ SectionVerb
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionVerb
@@ -307,8 +505,8 @@ SectionVerb
 		'AUX_PCM_RX_Voice Mixer CSVoice':1:0
 		'Voice_Tx Mixer AUX_PCM_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionVerb
@@ -321,8 +519,8 @@ SectionVerb
 
 	DisableSequence
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionVerb
@@ -335,8 +533,8 @@ SectionVerb
 		'AUX_PCM_RX_Voice Mixer CSVoice':1:0
 		'Voice_Tx Mixer AUX_PCM_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionVerb
@@ -349,8 +547,8 @@ SectionVerb
 
 	DisableSequence
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionVerb
@@ -363,8 +561,8 @@ SectionVerb
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionVerb
@@ -377,8 +575,8 @@ SectionVerb
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionVerb
@@ -391,8 +589,8 @@ SectionVerb
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionVerb
@@ -405,8 +603,8 @@ SectionVerb
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionVerb
@@ -419,8 +617,8 @@ SectionVerb
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionVerb
@@ -433,8 +631,8 @@ SectionVerb
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionVerb
@@ -447,8 +645,8 @@ SectionVerb
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionVerb
@@ -461,8 +659,8 @@ SectionVerb
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionVerb
@@ -475,8 +673,8 @@ SectionVerb
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionVerb
@@ -489,24 +687,24 @@ SectionVerb
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionVerb
 	Name "Voice CallVoice Speaker"
 
 	EnableSequence
-		'MI2S_RX_Voice Mixer CSVoice':1:1
-		'VOC_EXT_EC MUX':0:MI2S_TX
+		'MI2S_RX_Voice Mixer Voice Stub':1:1
+		'Voice Stub Tx Mixer MI2S_TX':1:1
 	EndSequence
 
 	DisableSequence
-		'MI2S_RX_Voice Mixer CSVoice':1:0
-		'VOC_EXT_EC MUX':0:NONE
+		'MI2S_RX_Voice Mixer Voice Stub':1:0
+		'Voice Stub Tx Mixer MI2S_TX':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 }
@@ -870,7 +1068,44 @@ SectionVerb
 	CapturePCM  3
 	PlaybackPCM  3
 EndSection
+}
+SectionUseCase."Voice2" {
+SectionVerb
+	Name "Voice2"
 
+	EnableSequence
+		'STUB_RX Mixer Voice2 Stub':1:1
+		'Voice2 Stub Tx Mixer STUB_TX_HL':1:1
+		'Voice2 Stub Tx Mixer STUB_1_TX_HL':1:1
+	EndSequence
+
+	DisableSequence
+		'STUB_RX Mixer Voice2 Stub':1:0
+		'Voice2 Stub Tx Mixer STUB_TX_HL':1:0
+		'Voice2 Stub Tx Mixer STUB_1_TX_HL':1:0
+	EndSequence
+	CapturePCM  15
+	PlaybackPCM  15
+EndSection
+}
+SectionUseCase."VoLTE" {
+SectionVerb
+	Name "VoLTE"
+
+	EnableSequence
+		'STUB_RX Mixer VoLTE Stub':1:1
+		'VoLTE Stub Tx Mixer STUB_TX_HL':1:1
+		'VoLTE Stub Tx Mixer STUB_1_TX_HL':1:1
+	EndSequence
+
+	DisableSequence
+		'STUB_RX Mixer VoLTE Stub':1:0
+		'VoLTE Stub Tx Mixer STUB_TX_HL':1:0
+		'VoLTE Stub Tx Mixer STUB_1_TX_HL':1:0
+	EndSequence
+	CapturePCM  13
+	PlaybackPCM  13
+EndSection
 }
 SectionUseCase."HiFi Tunnel" {
 SectionVerb
@@ -2597,20 +2832,6 @@ SectionModifier
 EndSection
 
 SectionModifier
-	Name "Capture MusicVoice Speaker"
-
-	EnableSequence
-		'MultiMedia1 Mixer SLIM_0_TX':1:1
-	EndSequence
-
-	DisableSequence
-		'MultiMedia1 Mixer SLIM_0_TX':1:0
-	EndSequence
-	CapturePCM  0
-	PlaybackPCM  0
-EndSection
-
-SectionModifier
 	Name "Capture MusicSpeaker ANC Headset"
 
 	EnableSequence
@@ -3001,20 +3222,6 @@ SectionModifier
 EndSection
 
 SectionModifier
-	Name "Play MusicVoice Speaker"
-
-	EnableSequence
-		'MI2S_RX Audio Mixer MultiMedia1':1:1
-	EndSequence
-
-	DisableSequence
-		'MI2S_RX Audio Mixer MultiMedia1':1:0
-	EndSequence
-	CapturePCM  0
-	PlaybackPCM  0
-EndSectio
-
-SectionModifier
 	Name "Play MusicSpeaker ANC Headset"
 
 	EnableSequence
@@ -3069,6 +3276,20 @@ SectionModifier
 	DisableSequence
 		'MI2S_RX Audio Mixer MultiMedia1':1:0
 		'SLIMBUS_0_RX Audio Mixer MultiMedia1':1:0
+	EndSequence
+	CapturePCM  0
+	PlaybackPCM  0
+EndSection
+
+SectionModifier
+	Name "Play MusicSpeaker Headset"
+
+	EnableSequence
+		'MI2S_RX Audio Mixer MultiMedia1':1:1
+	EndSequence
+
+	DisableSequence
+		'MI2S_RX Audio Mixer MultiMedia1':1:0
 	EndSequence
 	CapturePCM  0
 	PlaybackPCM  0
@@ -3140,8 +3361,8 @@ SectionModifier
 		'AUX_PCM_RX_Voice Mixer CSVoice':1:0
 		'Voice_Tx Mixer AUX_PCM_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3154,8 +3375,8 @@ SectionModifier
 
 	DisableSequence
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3168,8 +3389,8 @@ SectionModifier
 		'AUX_PCM_RX_Voice Mixer CSVoice':1:0
 		'Voice_Tx Mixer AUX_PCM_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3182,8 +3403,8 @@ SectionModifier
 
 	DisableSequence
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3196,8 +3417,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3210,8 +3431,8 @@ SectionModifier
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3224,8 +3445,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3238,8 +3459,8 @@ SectionModifier
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3252,8 +3473,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3266,8 +3487,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3280,8 +3501,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3294,8 +3515,8 @@ SectionModifier
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3308,8 +3529,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3322,8 +3543,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3336,8 +3557,8 @@ SectionModifier
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3350,8 +3571,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3364,8 +3585,8 @@ SectionModifier
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3378,8 +3599,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3392,8 +3613,8 @@ SectionModifier
 	DisableSequence
 		'MI2S_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM 12
+	PlaybackPCM 12
 EndSection
 
 SectionModifier
@@ -3406,8 +3627,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3420,8 +3641,8 @@ SectionModifier
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3434,8 +3655,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3448,8 +3669,8 @@ SectionModifier
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3462,8 +3683,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3478,8 +3699,8 @@ SectionModifier
 		'MI2S_RX_Voice Mixer CSVoice':1:0
 		'VOC_EXT_EC MUX':0:NONE
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3492,8 +3713,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3506,8 +3727,8 @@ SectionModifier
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
+	CapturePCM  12
+	PlaybackPCM  12
 EndSection
 
 SectionModifier
@@ -3594,6 +3815,74 @@ SectionModifier
 	EndSequence
 	CapturePCM  0
 	PlaybackPCM  0
+EndSection
+
+SectionModifier
+	Name "Capture Lowlatency Music"
+
+	EnableSequence
+		'MultiMedia5 Mixer SLIM_0_TX':1:1
+	EndSequence
+
+	DisableSequence
+		'MultiMedia5 Mixer SLIM_0_TX':1:0
+	EndSequence
+	CapturePCM  14
+	PlaybackPCM  14
+EndSection
+
+SectionModifier
+	Name "Capture Lowlatency MusicBT SCO Tx"
+
+	EnableSequence
+		'MultiMedia5 Mixer AUX_PCM_TX':1:1
+	EndSequence
+
+	DisableSequence
+		'MultiMedia5 Mixer AUX_PCM_TX':1:0
+	EndSequence
+	CapturePCM  14
+	PlaybackPCM  14
+EndSection
+
+SectionModifier
+	Name "Capture Lowlatency MusicBT SCO WB Tx"
+
+	EnableSequence
+		'MultiMedia5 Mixer AUX_PCM_TX':1:1
+	EndSequence
+
+	DisableSequence
+		'MultiMedia5 Mixer AUX_PCM_TX':1:0
+	EndSequence
+	CapturePCM  14
+	PlaybackPCM  14
+EndSection
+
+SectionModifier
+	Name "Capture Lowlatency MusicPROXY Rx"
+
+	EnableSequence
+	EndSequence
+
+	DisableSequence
+	EndSequence
+	CapturePCM  14
+	PlaybackPCM  14
+EndSection
+
+SectionModifier
+	Name "Capture Lowlatency MusicPROXY Tx"
+
+	EnableSequence
+		'MultiMedia5 Mixer AFE_PCM_TX':1:1
+	EndSequence
+
+	DisableSequence
+		'MultiMedia5 Mixer AFE_PCM_TX':1:0
+	EndSequence
+	CapturePCM  14
+	PlaybackPCM  14
 EndSection
 
 SectionModifier
@@ -3840,6 +4129,90 @@ SectionModifier
 	EndSequence
 	CapturePCM  0
 	PlaybackPCM  0
+EndSection
+
+SectionModifier
+	Name "Play Lowlatency Music"
+
+	EnableSequence
+		'SLIMBUS_0_RX Audio Mixer MultiMedia5':1:1
+	EndSequence
+
+	DisableSequence
+		'SLIMBUS_0_RX Audio Mixer MultiMedia5':1:0
+	EndSequence
+	CapturePCM  14
+	PlaybackPCM  14
+EndSection
+
+SectionModifier
+	Name "Play Lowlatency MusicBT SCO Rx"
+
+	EnableSequence
+		'AUX_PCM_RX Audio Mixer MultiMedia5':1:1
+	EndSequence
+
+	DisableSequence
+		'AUX_PCM_RX Audio Mixer MultiMedia5':1:0
+	EndSequence
+	CapturePCM  14
+	PlaybackPCM  14
+EndSection
+
+SectionModifier
+	Name "Play Lowlatency MusicBT SCO WB Rx"
+
+	EnableSequence
+		'AUX_PCM_RX Audio Mixer MultiMedia5':1:1
+	EndSequence
+
+	DisableSequence
+		'AUX_PCM_RX Audio Mixer MultiMedia5':1:0
+	EndSequence
+	CapturePCM  14
+	PlaybackPCM  14
+EndSection
+
+SectionModifier
+	Name "Play Lowlatency MusicPROXY Rx"
+
+	EnableSequence
+		'AFE_PCM_RX Audio Mixer MultiMedia5':1:1
+	EndSequence
+
+	DisableSequence
+		'AFE_PCM_RX Audio Mixer MultiMedia5':1:0
+	EndSequence
+	CapturePCM  14
+	PlaybackPCM  14
+EndSection
+
+SectionModifier
+	Name "Play Lowlatency MusicSpeaker"
+
+	EnableSequence
+		'MI2S_RX Audio Mixer MultiMedia5':1:1
+	EndSequence
+
+	DisableSequence
+		'MI2S_RX Audio Mixer MultiMedia5':1:0
+	EndSequence
+	CapturePCM  14
+	PlaybackPCM  14
+EndSection
+
+SectionModifier
+	Name "Play Lowlatency MusicVOIP Speaker"
+
+	EnableSequence
+		'MI2S_RX Audio Mixer MultiMedia5':1:1
+	EndSequence
+
+	DisableSequence
+		'MI2S_RX Audio Mixer MultiMedia5':1:0
+	EndSequence
+	CapturePCM  14
+	PlaybackPCM  14
 EndSection
 
 SectionModifier
