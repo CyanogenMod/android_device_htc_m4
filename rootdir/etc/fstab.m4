@@ -16,4 +16,4 @@
 /dev/block/mmcblk0p35	/data		ext4	noatime,nosuid,nodev,noauto_da_alloc,barrier=0,discard	wait,check,encryptable=footer
 
 # USB Storage
-/devices/platform/msm_hsusb_host/usb	/storage/usbdisk	auto	defaults	voldmanaged=usbdisk:auto
+/devices/platform/msm_hsusb_host/usb	auto	auto	defaults	voldmanaged=usbdisk:auto
