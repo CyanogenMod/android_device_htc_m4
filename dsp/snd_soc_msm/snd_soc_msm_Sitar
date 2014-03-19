@@ -162,20 +162,6 @@ SectionVerb
 EndSection
 
 SectionVerb
-	Name "HiFiSpeaker"
-
-	EnableSequence
-		'MI2S_RX Audio Mixer MultiMedia1':1:1
-	EndSequence
-
-	DisableSequence
-		'MI2S_RX Audio Mixer MultiMedia1':1:0
-	EndSequence
-	CapturePCM  0
-	PlaybackPCM  0
-EndSection
-
-SectionVerb
 	Name "HiFiSpeaker FM Tx"
 
 	EnableSequence
@@ -2256,7 +2242,7 @@ SectionDevice
 		'LINEOUT1 Volume':1:80
 		'LINEOUT2 Volume':1:80
 		'RX1 MIX1 INP1':0:RX1
-		'RX1 Digital Volume':2:54
+		'RX1 Digital Volume':1:75
 		'RCV AMP EN Switch':1:1
 	EndSequence
 
@@ -2267,7 +2253,7 @@ SectionDevice
 		'LINEOUT1 Volume':1:0
 		'LINEOUT2 Volume':1:0
 		'RX1 MIX1 INP1':0:ZERO
-		'RX1 Digital Volume':2:0
+		'RX1 Digital Volume':1:0
 	EndSequence
 
 	ACDBID  7:1
@@ -3270,22 +3256,6 @@ SectionModifier
 
 	EnableSequence
 		'MI2S_RX Audio Mixer MultiMedia1':1:1
-		'SLIMBUS_0_RX Audio Mixer MultiMedia1':1:1
-	EndSequence
-
-	DisableSequence
-		'MI2S_RX Audio Mixer MultiMedia1':1:0
-		'SLIMBUS_0_RX Audio Mixer MultiMedia1':1:0
-	EndSequence
-	CapturePCM  0
-	PlaybackPCM  0
-EndSection
-
-SectionModifier
-	Name "Play MusicSpeaker Headset"
-
-	EnableSequence
-		'MI2S_RX Audio Mixer MultiMedia1':1:1
 	EndSequence
 
 	DisableSequence
@@ -3744,34 +3714,6 @@ SectionModifier
 EndSection
 
 SectionModifier
-	Name "Capture Music"
-
-	EnableSequence
-		'MultiMedia1 Mixer SLIM_0_TX':1:1
-	EndSequence
-
-	DisableSequence
-		'MultiMedia1 Mixer SLIM_0_TX':1:0
-	EndSequence
-	CapturePCM  0
-	PlaybackPCM  0
-EndSection
-
-SectionModifier
-	Name "Play Music"
-
-	EnableSequence
-		'SLIMBUS_0_RX Audio Mixer MultiMedia1':1:1
-	EndSequence
-
-	DisableSequence
-		'SLIMBUS_0_RX Audio Mixer MultiMedia1':1:0
-	EndSequence
-	CapturePCM  0
-	PlaybackPCM  0
-EndSection
-
-SectionModifier
 	Name "Play Voice"
 
 	EnableSequence
@@ -4034,50 +3976,6 @@ SectionModifier
 EndSection
 
 SectionModifier
-	Name "Play MusicSpeaker FM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia1':1:1
-		'SLIMBUS_0_RX Audio Mixer MultiMedia1':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia1':1:0
-		'SLIMBUS_0_RX Audio Mixer MultiMedia1':1:0
-	EndSequence
-	CapturePCM  0
-	PlaybackPCM  0
-EndSection
-
-SectionModifier
-	Name "Play MusicFM Tx"
-
-	EnableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia1':1:1
-	EndSequence
-
-	DisableSequence
-		'INTERNAL_FM_RX Audio Mixer MultiMedia1':1:0
-	EndSequence
-	CapturePCM  0
-	PlaybackPCM  0
-EndSection
-
-SectionModifier
-	Name "Play MusicHDMI"
-
-	EnableSequence
-		'HDMI Mixer MultiMedia1':1:1
-	EndSequence
-
-	DisableSequence
-		'HDMI Mixer MultiMedia1':1:0
-	EndSequence
-	CapturePCM  0
-	PlaybackPCM  0
-EndSection
-
-SectionModifier
 	Name "Play MusicBT SCO Rx"
 
 	EnableSequence
@@ -4112,20 +4010,6 @@ SectionModifier
 
 	DisableSequence
 		'AUX_PCM_RX Audio Mixer MultiMedia1':1:0
-	EndSequence
-	CapturePCM  0
-	PlaybackPCM  0
-EndSection
-
-SectionModifier
-	Name "Play MusicPROXY Rx"
-
-	EnableSequence
-		'AFE_PCM_RX Audio Mixer MultiMedia1':1:1
-	EndSequence
-
-	DisableSequence
-		'AFE_PCM_RX Audio Mixer MultiMedia1':1:0
 	EndSequence
 	CapturePCM  0
 	PlaybackPCM  0
@@ -4368,62 +4252,6 @@ SectionModifier
 EndSection
 
 SectionModifier
-	Name "Play VoiceBT SCO Rx"
-
-	EnableSequence
-	EndSequence
-
-	DisableSequence
-		'AUX_PCM_RX_Voice Mixer CSVoice':1:0
-		'Voice_Tx Mixer AUX_PCM_TX_Voice':1:0
-	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
-EndSection
-
-SectionModifier
-	Name "Play VoiceBT SCO Tx"
-
-	EnableSequence
-		'AUX_PCM_RX_Voice Mixer CSVoice':1:1
-		'Voice_Tx Mixer AUX_PCM_TX_Voice':1:1
-	EndSequence
-
-	DisableSequence
-	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
-EndSection
-
-SectionModifier
-	Name "Play VoiceBT SCO WB Rx"
-
-	EnableSequence
-	EndSequence
-
-	DisableSequence
-		'AUX_PCM_RX_Voice Mixer CSVoice':1:0
-		'Voice_Tx Mixer AUX_PCM_TX_Voice':1:0
-	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
-EndSection
-
-SectionModifier
-	Name "Play VoiceBT SCO WB Tx"
-
-	EnableSequence
-		'AUX_PCM_RX_Voice Mixer CSVoice':1:1
-		'Voice_Tx Mixer AUX_PCM_TX_Voice':1:1
-	EndSequence
-
-	DisableSequence
-	EndSequence
-	CapturePCM  2
-	PlaybackPCM  2
-EndSection
-
-SectionModifier
 	Name "Play VoiceHDMI"
 
 	EnableSequence
@@ -4620,18 +4448,6 @@ SectionModifier
 EndSection
 
 SectionModifier
-	Name "Play MusicPROXY Tx"
-
-	EnableSequence
-	EndSequence
-
-	DisableSequence
-	EndSequence
-	CapturePCM  0
-	PlaybackPCM  0
-EndSection
-
-SectionModifier
 	Name "Play LPAPROXY Tx"
 
 	EnableSequence
@@ -4650,32 +4466,6 @@ SectionModifier
 	EndSequence
 
 	DisableSequence
-	EndSequence
-	CapturePCM  0
-	PlaybackPCM  0
-EndSection
-
-SectionModifier
-	Name "Capture MusicPROXY Rx"
-
-	EnableSequence
-	EndSequence
-
-	DisableSequence
-	EndSequence
-	CapturePCM  0
-	PlaybackPCM  0
-EndSection
-
-SectionModifier
-	Name "Capture MusicSSR QMIC"
-
-	EnableSequence
-		'MultiMedia1 Mixer SLIM_0_TX':1:1
-	EndSequence
-
-	DisableSequence
-		'MultiMedia1 Mixer SLIM_0_TX':1:0
 	EndSequence
 	CapturePCM  0
 	PlaybackPCM  0
