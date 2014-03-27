@@ -789,6 +789,19 @@ SectionVerb
 EndSection
 
 SectionVerb
+	Name "HiFi Low PowerSpeaker"
+
+	EnableSequence
+		'MI2S_RX Audio Mixer MultiMedia3':1:1
+	EndSequence
+
+	DisableSequence
+		'MI2S_RX Audio Mixer MultiMedia3':1:0
+	EndSequence
+	PlaybackPCM  4
+EndSection
+
+SectionVerb
 	Name "HiFi Low PowerBT SCO Rx"
 
 	EnableSequence
