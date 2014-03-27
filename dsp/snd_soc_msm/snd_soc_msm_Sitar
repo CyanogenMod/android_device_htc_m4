@@ -477,8 +477,8 @@ SectionVerb
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionVerb
@@ -491,8 +491,8 @@ SectionVerb
 		'AUX_PCM_RX_Voice Mixer CSVoice':1:0
 		'Voice_Tx Mixer AUX_PCM_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionVerb
@@ -505,8 +505,8 @@ SectionVerb
 
 	DisableSequence
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionVerb
@@ -519,8 +519,8 @@ SectionVerb
 		'AUX_PCM_RX_Voice Mixer CSVoice':1:0
 		'Voice_Tx Mixer AUX_PCM_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionVerb
@@ -533,8 +533,8 @@ SectionVerb
 
 	DisableSequence
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionVerb
@@ -547,8 +547,8 @@ SectionVerb
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionVerb
@@ -561,8 +561,8 @@ SectionVerb
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionVerb
@@ -575,8 +575,8 @@ SectionVerb
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionVerb
@@ -589,8 +589,8 @@ SectionVerb
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionVerb
@@ -603,8 +603,8 @@ SectionVerb
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionVerb
@@ -617,8 +617,8 @@ SectionVerb
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionVerb
@@ -631,8 +631,8 @@ SectionVerb
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionVerb
@@ -645,8 +645,8 @@ SectionVerb
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionVerb
@@ -659,8 +659,8 @@ SectionVerb
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionVerb
@@ -673,8 +673,8 @@ SectionVerb
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionVerb
@@ -689,8 +689,8 @@ SectionVerb
 		'MI2S_RX_Voice Mixer Voice Stub':1:0
 		'Voice Stub Tx Mixer MI2S_TX':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 }
@@ -3344,8 +3344,8 @@ SectionModifier
 		'AUX_PCM_RX_Voice Mixer CSVoice':1:0
 		'Voice_Tx Mixer AUX_PCM_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3358,8 +3358,8 @@ SectionModifier
 
 	DisableSequence
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3372,8 +3372,8 @@ SectionModifier
 		'AUX_PCM_RX_Voice Mixer CSVoice':1:0
 		'Voice_Tx Mixer AUX_PCM_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3386,8 +3386,8 @@ SectionModifier
 
 	DisableSequence
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3400,8 +3400,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3414,8 +3414,8 @@ SectionModifier
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3428,8 +3428,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3442,8 +3442,8 @@ SectionModifier
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3456,8 +3456,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3470,8 +3470,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3484,8 +3484,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3498,8 +3498,8 @@ SectionModifier
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3512,8 +3512,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3526,8 +3526,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3540,8 +3540,8 @@ SectionModifier
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3554,8 +3554,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3568,8 +3568,8 @@ SectionModifier
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3582,8 +3582,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3596,8 +3596,8 @@ SectionModifier
 	DisableSequence
 		'MI2S_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM 12
-	PlaybackPCM 12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3610,8 +3610,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3624,8 +3624,8 @@ SectionModifier
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3638,8 +3638,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3652,8 +3652,8 @@ SectionModifier
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3666,8 +3666,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3682,8 +3682,8 @@ SectionModifier
 		'MI2S_RX_Voice Mixer CSVoice':1:0
 		'VOC_EXT_EC MUX':0:NONE
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3696,8 +3696,8 @@ SectionModifier
 	DisableSequence
 		'Voice_Tx Mixer SLIM_0_TX_Voice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
@@ -3710,8 +3710,8 @@ SectionModifier
 	DisableSequence
 		'SLIM_0_RX_Voice Mixer CSVoice':1:0
 	EndSequence
-	CapturePCM  12
-	PlaybackPCM  12
+	CapturePCM  2
+	PlaybackPCM  2
 EndSection
 
 SectionModifier
