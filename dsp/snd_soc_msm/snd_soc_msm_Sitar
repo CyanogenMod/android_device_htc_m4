@@ -1781,16 +1781,22 @@ SectionDevice
 	Name "Speaker DMIC Endfire"
 
 	EnableSequence
-		'SLIM_0_TX Channels':0:One
+		'SLIM_0_TX Channels':0:Two
 		'SLIM TX3 MUX':0:DEC3
 		'DEC3 MUX':0:DMIC2
-		'DEC3 Volume':1:54
+		'DEC3 Volume':1:57
+		'SLIM TX4 MUX':0:DEC4
+		'DEC4 MUX':0:DMIC4
+		'DEC4 Volume':1:57
 	EndSequence
 
 	DisableSequence
 		'SLIM TX3 MUX':0:ZERO
+		'SLIM TX4 MUX':0:ZERO
 		'DEC3 MUX':0:ZERO
+		'DEC4 MUX':0:ZERO
 		'DEC3 Volume':1:0
+		'DEC4 Volume':1:0
 	EndSequence
 
 	ACDBID  52:2
