@@ -1472,7 +1472,7 @@ SectionDevice
 		'DEC4 Volume':1:0
 	EndSequence
 
-	ACDBID  51:2
+	ACDBID  6:2
 EndSection
 
 SectionDevice
@@ -1799,7 +1799,7 @@ SectionDevice
 		'DEC4 Volume':1:0
 	EndSequence
 
-	ACDBID  52:2
+	ACDBID  11:2
 EndSection
 
 SectionDevice
