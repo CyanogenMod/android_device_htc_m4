@@ -541,18 +541,29 @@ SectionVerb
 	Name "Voice CallVoice Speaker"
 
 	EnableSequence
-		'MI2S_RX_Voice Mixer Voice Stub':1:1
-		'Voice Stub Tx Mixer MI2S_TX':1:1
+		'MI2S_RX_Voice Mixer CSVoice':1:1
+		'Voice_Tx Mixer MI2S_TX_Voice':1:1
 	EndSequence
 
 	DisableSequence
-		'MI2S_RX_Voice Mixer Voice Stub':1:0
-		'Voice Stub Tx Mixer MI2S_TX':1:0
+		'MI2S_RX_Voice Mixer CSVoice':1:0
+		'Voice_Tx Mixer MI2S_TX_Voice':1:0
 	EndSequence
 	CapturePCM  2
 	PlaybackPCM  2
 EndSection
 
+SectionVerb
+	Name "Voice CallSpeaker DMIC Endfire"
+
+	EnableSequence
+	EndSequence
+
+	DisableSequence
+	EndSequence
+	CapturePCM  2
+	PlaybackPCM  2
+EndSection
 }
 SectionUseCase."FM Digital Radio" { 
 SectionVerb
