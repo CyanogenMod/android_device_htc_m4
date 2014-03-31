@@ -35,9 +35,9 @@ $(FIRMWARE_RADIO_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Modem Firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /firmware_radio/$(notdir $@) $@
+	$(hide) ln -sf /firmware_radio/$(notdir $@) $(subst modem_f1,modem_fw,$@)
 
-ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_MODEM_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_RADIO_SYMLINKS)
 
 # Q6 Firmware linking
 FIRMWARE_Q6_IMAGES := \
