@@ -553,6 +553,7 @@ SectionVerb
 	PlaybackPCM  2
 EndSection
 
+SectionVerb
 	Name "Voice CallDMIC Endfire"
 
 	EnableSequence
@@ -2147,7 +2148,7 @@ SectionDevice
 		'LINEOUT1 Volume':1:80
 		'LINEOUT2 Volume':1:80
 		'RX1 MIX1 INP1':0:RX1
-		'RX1 Digital Volume':1:75
+		'RX1 Digital Volume':1:60
 		'RCV AMP EN Switch':1:1
 	EndSequence
 
