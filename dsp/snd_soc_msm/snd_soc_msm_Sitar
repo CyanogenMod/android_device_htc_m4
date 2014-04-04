@@ -1458,10 +1458,10 @@ SectionDevice
 		'SLIM_0_TX Channels':0:Two
 		'SLIM TX3 MUX':0:DEC3
 		'DEC3 MUX':0:DMIC2
-		'DEC3 Volume':1:57
+		'DEC3 Volume':1:62
 		'SLIM TX4 MUX':0:DEC4
 		'DEC4 MUX':0:DMIC4
-		'DEC4 Volume':1:57
+		'DEC4 Volume':1:62
 	EndSequence
 
 	DisableSequence
@@ -1785,10 +1785,10 @@ SectionDevice
 		'SLIM_0_TX Channels':0:Two
 		'SLIM TX3 MUX':0:DEC3
 		'DEC3 MUX':0:DMIC2
-		'DEC3 Volume':1:57
+		'DEC3 Volume':1:62
 		'SLIM TX4 MUX':0:DEC4
 		'DEC4 MUX':0:DMIC4
-		'DEC4 Volume':1:57
+		'DEC4 Volume':1:62
 	EndSequence
 
 	DisableSequence
