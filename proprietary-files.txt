@@ -167,10 +167,6 @@ lib/liboemcamera.so
 lib/libposteffect.so
 
 # GPS
-lib/hw/gps.default.so
-lib/libloc_adapter.so
-lib/libloc_eng.so
-lib/libgps.utils.so
 lib/libgeofence.so
 lib/libloc_api_v02.so
 
