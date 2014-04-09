@@ -11,21 +11,17 @@
 /dev/kgsl-3d0             0666   root       root
 /dev/kgsl-2d0             0666   root       root
 /dev/kgsl-2d1             0666   root       root
-/dev/msm_rotator          0666   system     graphics
+/dev/msm_rotator          0660   system     graphics
 
 # these should not be world writable
-/dev/ttyMSM0              0600   bluetooth  bluetooth
 /dev/ttyHS0               0660   bluetooth  bluetooth
 /dev/ttyGS0               0660   system     system
-/dev/uinput               0660   system     bluetooth
-/dev/alarm                0664   system     system
-/dev/tty0                 0660   root       system
 /dev/pmem_audio           0660   system     audio
 /dev/pmem_smipool*        0660   system     camera
 /dev/oncrpc/*             0660   radio      system
 /dev/gss                  0660   gps        gps
 /dev/msm_camera/*         0660   system     camera
-/dev/radio0               0664   audio      audio
+/dev/radio0               0644   audio      audio
 /dev/i2c-0                0664   root       system
 /dev/i2c-1                0664   root       system
 /dev/i2c-2                0664   root       system
@@ -77,7 +73,7 @@
 /dev/ion                  0664   system     system
 
 # wifi
-/dev/rfkill               0777   root       wifi 
+/dev/rfkill               0660   root       wifi
 
 #permissions for video
 /dev/msm_vidc_reg         0660  system       audio
@@ -131,9 +127,6 @@
 /dev/mpuirq               0664  system       system
 /dev/timerirq             0644  system       system
 
-# AKM8963
-/dev/akm8963_dev          0660  system       system
-
 # Bluetooth
 /dev/btlock               0600  bluetooth    bluetooth
 
@@ -141,20 +134,5 @@
 /dev/qseecom              0660  system       drmrpc
 
 # USB Peripheral
-/dev/bus/usb/*            0660   root       usb
 /dev/mtp_usb              0660   root       mtp
 /dev/usb_accessory        0660   root       usb
-/dev/usb/lp*              0660   system     usb
-
-# m4 sensors
-/dev/mpu                  0664  system       system
-/dev/mpuirq               0664  system       system
-/dev/timerirq             0664  system       system
-/dev/akm8975_aot          0640  compass      system
-/dev/akm8975_daemon       0640  compass      system
-/dev/bma150               0640  compass      system
-
-# sysfs properties
-/sys/devices/virtual/input/input*   enable      0660  root   input
-/sys/devices/virtual/input/input*   poll_delay  0660  root   input
-/sys/devices/virtual/usb_composite/*   enable      0664  root   system
