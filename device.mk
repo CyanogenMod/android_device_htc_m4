@@ -33,6 +33,15 @@ PRODUCT_PACKAGES += \
     init.m4.usb.rc \
     ueventd.m4.rc
 
+# Recovery
+PRODUCT_PACKAGES += \
+    init.recovery.m4.rc \
+    lpm.rc \
+    choice_fn \
+    power_test \
+    offmode_charging \
+    detect_key
+
 # Qualcomm scripts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/init.qcom.bt.sh:/system/etc/init.qcom.bt.sh \
