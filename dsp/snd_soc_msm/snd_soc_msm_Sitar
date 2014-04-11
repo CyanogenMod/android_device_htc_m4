@@ -162,6 +162,20 @@ SectionVerb
 EndSection
 
 SectionVerb
+	Name "HiFiVOIP Speaker"
+
+	EnableSequence
+		'MI2S_RX Audio Mixer MultiMedia1':1:1
+	EndSequence
+
+	DisableSequence
+		'MI2S_RX Audio Mixer MultiMedia1':1:0
+	EndSequence
+	CapturePCM  0
+	PlaybackPCM  0
+EndSection
+
+SectionVerb
 	Name "HiFiSpeaker FM Tx"
 
 	EnableSequence
@@ -2320,7 +2334,7 @@ SectionDevice
 		'RX1 Digital Volume':1:0
 	EndSequence
 
-	ACDBID  202:1
+	ACDBID  7:1
 EndSection
 
 SectionDevice
@@ -2330,10 +2344,10 @@ SectionDevice
 		'SLIM_0_TX Channels':0:Two
 		'SLIM TX3 MUX':0:DEC3
 		'DEC3 MUX':0:DMIC2
-		'DEC3 Volume':1:56
+		'DEC3 Volume':1:62
 		'SLIM TX4 MUX':0:DEC4
 		'DEC4 MUX':0:DMIC4
-		'DEC4 Volume':1:56
+		'DEC4 Volume':1:62
 		'MICBIAS1 CAPLESS Switch':1:0
 		'MICBIAS3 CAPLESS Switch':1:0
 	EndSequence
@@ -2349,7 +2363,7 @@ SectionDevice
 		'MICBIAS3 CAPLESS Switch':1:0
 	EndSequence
 
-	ACDBID  103:2
+	ACDBID  6:2
 EndSection
 
 SectionDevice
@@ -2416,21 +2430,25 @@ SectionDevice
 	Name "VOIP Line"
 
 	EnableSequence
-		'SLIM_0_TX Channels':0:One
-		'SLIM TX3 MUX':0:DEC4
+		'SLIM_0_TX Channels':0:Two
+		'SLIM TX3 MUX':0:DEC3
+		'DEC3 MUX':0:DMIC2
+		'DEC3 Volume':1:62
+		'SLIM TX4 MUX':0:DEC4
 		'DEC4 MUX':0:DMIC4
-		'DEC4 Volume':1:58
-		'MICBIAS3 CAPLESS Switch':1:0
+		'DEC4 Volume':1:62
 	EndSequence
 
 	DisableSequence
 		'SLIM TX3 MUX':0:ZERO
+		'SLIM TX4 MUX':0:ZERO
+		'DEC3 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC3 Volume':1:0
 		'DEC4 Volume':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
 	EndSequence
 
-	ACDBID  504:2
+	ACDBID  11:2
 EndSection
 
 SectionDevice
