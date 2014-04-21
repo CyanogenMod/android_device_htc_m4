@@ -14,11 +14,10 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := $(call my-dir)
-
 ifeq ($(TARGET_DEVICE),m4)
-    include $(call first-makefiles-under,$(LOCAL_PATH))
-endif
+
+LOCAL_PATH := $(call my-dir)
+include $(call first-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
@@ -51,3 +50,5 @@ $(FIRMWARE_Q6_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /firmware_q6/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_Q6_SYMLINKS)
+
+endif
