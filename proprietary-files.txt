@@ -12,7 +12,7 @@ bin/thermald
 etc/agps_rm
 
 # Bluetooth
-etc/firmware/BCM4334B0_002.001.013.0942.0949.hcd
+etc/firmware/BCM4334B0_002.001.013.1352.1353.hcd
 
 # Adreno
 etc/firmware/a300_pfp.fw
@@ -57,6 +57,14 @@ lib/libcameraasd.so
 lib/libcameraface.so
 lib/libcamerapp.so
 lib/libcam_oem_plugin.so
+lib/libchromatix_s5k3h2yx_default_video.so
+lib/libchromatix_s5k3h2yx_hdr.so
+lib/libchromatix_s5k3h2yx_hfr.so
+lib/libchromatix_s5k3h2yx_preview.so
+lib/libchromatix_s5k3h2yx_zsl.so
+lib/libchromatix_s5k6a1gx_default_video.so
+lib/libchromatix_s5k6a1gx_preview.so
+lib/libchromatix_s5k6a1gx_zsl.so
 lib/libchromatix_s5k6a2ya_default_video.so
 lib/libchromatix_s5k6a2ya_hdr.so
 lib/libchromatix_s5k6a2ya_hfr.so
@@ -71,6 +79,15 @@ lib/libchromatix_ov4688_preview.so
 lib/libchromatix_ov4688_video_hdr.so
 lib/libchromatix_ov4688_zoe.so
 lib/libchromatix_ov4688_zsl.so
+lib/libchromatix_vd6869_default_video.so
+lib/libchromatix_vd6869_hdr.so
+lib/libchromatix_vd6869_hfr.so
+lib/libchromatix_vd6869_hfr_60fps.so
+lib/libchromatix_vd6869_night.so
+lib/libchromatix_vd6869_preview.so
+lib/libchromatix_vd6869_video_hdr.so
+lib/libchromatix_vd6869_zoe.so
+lib/libchromatix_vd6869_zsl.so
 lib/libgemini.so
 lib/libhtccamera_yushaniiproc.so
 lib/libHTC_DIS.so
@@ -98,6 +115,7 @@ lib/libgeofence.so
 lib/libloc_api_v02.so
 
 # Media libraries
+lib/libExtendedExtractor.so
 lib/libI420colorconvert.so
 lib/libmm-color-convertor.so
 
