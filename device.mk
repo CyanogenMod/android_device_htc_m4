@@ -40,6 +40,7 @@ PRODUCT_PACKAGES += \
     choice_fn \
     power_test \
     offmode_charging \
+    chargeled \
     detect_key
 
 # Qualcomm scripts
