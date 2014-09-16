@@ -8,6 +8,7 @@
 
 /dev/block/platform/msm_sdcc.1/by-name/boot	/boot		emmc	defaults						defaults
 /dev/block/platform/msm_sdcc.1/by-name/recovery	/recovery	emmc	defaults						defaults
+/dev/block/platform/msm_sdcc.1/by-name/misc	/misc		emmc	defaults						defaults
 /dev/block/platform/msm_sdcc.1/by-name/devlog	/devlog         ext4    noatime,nosuid,nodev,noauto_da_alloc,barrier=0          wait
 /dev/block/platform/msm_sdcc.1/by-name/system	/system		ext4	ro,noatime,barrier=0					wait
 /dev/block/platform/msm_sdcc.1/by-name/cache	/cache		ext4	nosuid,nodev,noatime,barrier=0				wait,check

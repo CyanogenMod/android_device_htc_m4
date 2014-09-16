@@ -126,6 +126,7 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
 
 # Recovery
+BOARD_RECOVERY_BLDRMSG_OFFSET := 2048
 TARGET_RECOVERY_FSTAB := device/htc/m4/rootdir/etc/fstab.m4
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
