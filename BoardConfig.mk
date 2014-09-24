@@ -75,7 +75,7 @@ BOARD_PROVIDES_LIBRIL := true
 BOARD_RIL_FIVE_SEARCH_RESPONSES := true
 
 # Tuning
-BOARD_HARDWARE_CLASS := device/htc/m7-common/cmhw
+BOARD_HARDWARE_CLASS := device/htc/m4/cmhw
 
 # USB
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
