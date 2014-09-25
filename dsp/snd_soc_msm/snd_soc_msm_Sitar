@@ -1821,18 +1821,22 @@ SectionDevice
 	Name "Speaker DMIC Stereo"
 
 	EnableSequence
-		'SLIM_0_TX Channels':0:One
-		'SLIM TX3 MUX':0:DEC4
+		'SLIM_0_TX Channels':0:Two
+		'SLIM TX3 MUX':0:DEC3
+		'DEC3 MUX':0:DMIC2
+		'DEC3 Volume':1:70
+		'SLIM TX4 MUX':0:DEC4
 		'DEC4 MUX':0:DMIC4
-		'DEC4 Volume':1:54
-		'MICBIAS3 CAPLESS Switch':1:0
+		'DEC4 Volume':1:70
 	EndSequence
 
 	DisableSequence
 		'SLIM TX3 MUX':0:ZERO
+		'SLIM TX4 MUX':0:ZERO
+		'DEC3 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC3 Volume':1:0
 		'DEC4 Volume':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
 	EndSequence
 
 	ACDBID  35:2
