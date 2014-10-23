@@ -48,6 +48,7 @@ BOARD_USES_SEPERATED_AUDIO_INPUT := true # use distinct voice recog/camcorder us
 BOARD_USES_SEPERATED_VOICE_SPEAKER := true # use distinct voice speaker user case
 BOARD_USES_SEPERATED_VOIP := true # use distinct VOIP use cases
 BOARD_HAVE_HTC_CSDCLIENT := true
+BOARD_AUDIO_AMPLIFIER := device/htc/m4/libaudioamp
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH_BCM := true
