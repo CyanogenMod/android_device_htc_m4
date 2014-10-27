@@ -136,6 +136,13 @@ lib/libposteffect.so
 lib/libgeofence.so
 lib/libloc_api_v02.so
 
+# Keymaster firmware
+vendor/firmware/keymaster/keymaster.b00
+vendor/firmware/keymaster/keymaster.b01
+vendor/firmware/keymaster/keymaster.b02
+vendor/firmware/keymaster/keymaster.b03
+vendor/firmware/keymaster/keymaster.mdt
+
 # Media libraries
 lib/libExtendedExtractor.so
 lib/libI420colorconvert.so
