@@ -3,8 +3,8 @@
 # The filesystem that contains the filesystem checker binary (typically /system) cannot
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
-/dev/block/platform/msm_sdcc.1/by-name/radio	/firmware_radio vfat    ro,shortname=lower                                      wait
-/dev/block/platform/msm_sdcc.1/by-name/adsp	/firmware_q6    vfat    ro,shortname=lower                                      wait
+/dev/block/platform/msm_sdcc.1/by-name/radio	/firmware_radio vfat    ro,shortname=lower,fmask=111				wait
+/dev/block/platform/msm_sdcc.1/by-name/adsp	/firmware_q6    vfat    ro,shortname=lower,fmask=111				wait
 
 /dev/block/platform/msm_sdcc.1/by-name/boot	/boot		emmc	defaults						defaults
 /dev/block/platform/msm_sdcc.1/by-name/recovery	/recovery	emmc	defaults						defaults
