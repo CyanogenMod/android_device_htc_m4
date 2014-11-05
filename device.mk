@@ -33,17 +33,6 @@ PRODUCT_PACKAGES += \
     init.m4.usb.rc \
     ueventd.m4.rc
 
-# Recovery
-PRODUCT_PACKAGES += \
-    init.recovery.m4.rc \
-    lpm.rc \
-    choice_fn \
-    power_test \
-    offmode_charging \
-    offmode_charging_res_images \
-    chargeled \
-    detect_key
-
 # QC thermald config
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/thermald.conf:system/etc/thermald.conf
 
