@@ -171,8 +171,6 @@
         <item>0</item>
     </integer-array>
 
-    <bool name="config_deviceHasVariableButtonBrightness">true</bool>
-
     <!-- XXXXX NOTE THE FOLLOWING RESOURCES USE THE WRONG NAMING CONVENTION.
          Please don't copy them, copy anything else. -->
 
@@ -222,12 +220,5 @@
 
     <!-- Disable lockscreen translucent decor by default -->
     <bool name="config_enableLockScreenTranslucentDecor">true</bool>
-
-    <!--Device supports LED flashlight -->
-    <bool name="config_enableTorch">true</bool>
-
-    <!-- Performance profiles -->
-    <string name="config_perf_profile_prop">sys.perf.profile</string>
-    <string name="config_perf_profile_default_entry">1</string>
 
 </resources>
