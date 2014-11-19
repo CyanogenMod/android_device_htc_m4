@@ -23,16 +23,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/system/lib/libqc-opt.so
 
-# Radio
-PRODUCT_PROPERTY_OVERRIDES += \
-    DEVICE_PROVISIONED=1 \
-    mobiledata.interfaces=rmnet0,rmnet1 \
-    rild.libargs=-d /dev/smd0 \
-    rild.libpath=/system/lib/libril-qc-qmi-1.so \
-    ro.baseband.arch=msm \
-    ro.telephony.default_network=9 \
-    telephony.lteOnGsmDevice=1
-
 # Recovery
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.forbid_format=/firmware_radio,/firmware_q6,/devlog \
