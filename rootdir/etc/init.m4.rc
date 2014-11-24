@@ -150,6 +150,9 @@ on boot
     chown media system /sys/camera_htccallback/htccallback
     chown media system /sys/camera_attrs/videochat
 
+    chown 0444 /proc/vmallocinfo
+    symlink /sys/kernel/debug /data/d
+
     # For Flashlight Restriction
     chown system system /sys/camera_led_status/led_hotspot_status
     chown radio system /sys/camera_led_status/led_ril_status
