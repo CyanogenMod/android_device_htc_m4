@@ -15,4 +15,4 @@
 /dev/block/platform/msm_sdcc.1/by-name/userdata	/data		ext4	noatime,nosuid,nodev,noauto_da_alloc,barrier=0		wait,check,encryptable=/dev/block/platform/msm_sdcc.1/by-name/extra
 
 # USB Storage
-/devices/platform/msm_hsusb_host/usb		auto		auto	defaults						voldmanaged=usbdisk:auto
+/devices/platform/msm_hsusb_host/usb*		auto		auto	defaults						voldmanaged=usbdisk:auto
