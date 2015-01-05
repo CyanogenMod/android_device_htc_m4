@@ -1,0 +1,23 @@
+/dev/rt5501                                               u:object_r:audio_device:s0
+/dev/tfa9887                                              u:object_r:audio_device:s0
+/dev/tfa9887l                                             u:object_r:audio_device:s0
+
+/dev/gemini0                                              u:object_r:camera_device:s0
+/dev/rawchip0                                             u:object_r:camera_device:s0
+/data/cam_socket(.*)                                      u:object_r:camera_socket:s0
+/sys/camera_htccallback/htccallback                       u:object_r:camera_sysfs:s0
+
+/dev/block/mmcblk0p19                                     u:object_r:modem_efs_partition_device:s0
+/dev/block/mmcblk0p23                                     u:object_r:modem_efs_partition_device:s0
+/dev/block/mmcblk0p24                                     u:object_r:modem_efs_partition_device:s0
+/dev/block/mmcblk0p34                                     u:object_r:modem_efs_partition_device:s0
+
+/data/system/default_values                               u:object_r:mpctl_data_file:s0
+/dev/socket/mpctl                                         u:object_r:mpctl_socket:s0
+
+/dev/cm3602                                               u:object_r:sensors_device:s0
+/dev/lightsensor                                          u:object_r:sensors_device:s0
+
+/dev/timerirq                                             u:object_r:timerirq_device:s0
+
+/sys/devices/virtual/timed_output/vibrator/voltage_level  u:object_r:vibeamp_sysfs:s0
