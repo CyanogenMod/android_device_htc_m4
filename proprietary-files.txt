@@ -1,5 +1,4 @@
 # Executables
-bin/akmd
 bin/charging
 bin/mm-qcamera-daemon
 bin/mpdecision

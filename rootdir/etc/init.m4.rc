@@ -164,11 +164,6 @@ on boot
     chown media media /sys/keyboard/vol_wakeup
 
 # Services start here
-service akmd /system/bin/akmd
-    class main
-    user system
-    group system misc input
-
 service dhcpcd_bt-pan /system/bin/dhcpcd -BKLG
     disabled
     oneshot
