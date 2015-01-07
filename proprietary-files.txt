@@ -130,6 +130,7 @@ lib/libmmjpeg.so
 lib/libmmstillomx.so
 lib/liboemcamera.so
 lib/libposteffect.so
+lib/libwriteback.so
 
 # GPS
 lib/libgeofence.so
