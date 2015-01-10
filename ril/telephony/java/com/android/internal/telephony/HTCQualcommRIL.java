@@ -162,6 +162,7 @@ public class HTCQualcommRIL extends RIL implements CommandsInterface {
         int response = p.readInt();
 
         switch(response) {
+            case RIL_UNSOL_DATA_CALL_LIST_CHANGED: ret = responseDataCallList(p);break;
             case RIL_UNSOL_ENTER_LPM: ret = responseVoid(p); break;
             case RIL_UNSOL_CDMA_3G_INDICATOR:  ret = responseInts(p); break;
             case RIL_UNSOL_CDMA_ENHANCE_ROAMING_INDICATOR:  ret = responseInts(p); break;
@@ -182,6 +183,20 @@ public class HTCQualcommRIL extends RIL implements CommandsInterface {
         }
 
         switch(response) {
+            case RIL_UNSOL_DATA_CALL_LIST_CHANGED:
+                if (RILJ_LOGD) unsljLogRet(response, ret);
+
+                if (!SystemProperties.get("ril.m4ril.sucks").equals("1")) {
+                    SystemProperties.set("ril.m4ril.sucks", "1");
+                    riljLog("[M4] Reset radio on first data call setup");
+                    setRadioPower(false, null);
+                    return;
+                }
+
+                mDataNetworkStateRegistrants.notifyRegistrants(new AsyncResult(null, ret, null));
+            break;
+
+
             case RIL_UNSOL_ENTER_LPM:
             case RIL_UNSOL_CDMA_3G_INDICATOR:
             case RIL_UNSOL_CDMA_ENHANCE_ROAMING_INDICATOR:
