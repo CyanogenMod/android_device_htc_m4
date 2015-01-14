@@ -218,7 +218,7 @@ service rmt_storage /system/bin/rmt_storage modem_st1 modem_st2 recovery radio_c
     class core
     user root
 
-service sdcard /system/bin/sdcard /data/media /mnt/shell/emulated 1023 1023
+service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
     class late_start
 
 service thermald /system/bin/thermald -d
