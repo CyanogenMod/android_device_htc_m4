@@ -103,8 +103,5 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_CHARACTERISTICS := nosdcard
 
-# Set build date
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-
 # call the proprietary setup
 $(call inherit-product, vendor/htc/m4/m4-vendor.mk)
