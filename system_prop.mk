@@ -23,11 +23,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/system/lib/libqc-opt.so
 
-# Recovery
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.cwm.forbid_format=/firmware_radio,/firmware_q6,/devlog \
-    ro.cwm.forbid_mount=/firmware_radio,/firmware_q6,/devlog
-
 # Time services
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.timed.enable=true
